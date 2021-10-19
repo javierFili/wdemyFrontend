@@ -1,0 +1,64 @@
+/**/
+
+/* La parte del APPBAR*/
+#appBar{
+  height: 60px;
+  background-color: #2F5D62;
+}
+#titulo{
+  margin-block-end: 100px;
+  
+  color: white;
+}
+
+/* Body */
+.carrusel{
+  margin-inline-start: 50%;
+  
+
+}
+.descripcion{
+  background: #DFEEEA;
+  border-radius: 50px;
+  opacity: 0.3;
+  margin:auto;
+  width:70%;
+}
+
+.letraDescrip{
+  width: 70%;
+  margin:auto;
+  text-align:center;
+  
+}
+.introTit{
+  display: inline-flex;
+  margin-top: 10%;
+}
+
+.filtro{
+  display: inline-flex;
+  width:400px ;
+  height: 40px; 
+  margin-bottom: 40px;
+  margin-left: 200%;
+  
+}
+.filtroText{
+  margin-top: 10px;
+}
+.fondo {
+  background-image: url(./imagenes/chicaCompu.jpeg); 
+  min-height: 750px;
+  max-height: 20px;
+  min-width: 200px;
+  max-width: 1350px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+
+
+
