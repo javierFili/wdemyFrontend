@@ -14,7 +14,7 @@ const curso = [
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
         "titulo":"Angular",
-        "palsClavs":'[web,softare]'
+        "palsClavs":'[web,softare,aa]'
     },
     {
         "id": 1,
@@ -37,7 +37,7 @@ const curso = [
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
         "titulo":"Angular",
-        "palsClavs":'[programacion,web,softare]'
+        "palsClavs":'[programacion,web,]'
     },
     {
         "id": 1,
@@ -62,7 +62,7 @@ const curso = [
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
         "titulo":"Angular",
-        "palsClavs":'[programacion,web,softare]'
+        "palsClavs":'[programacion,softare]'
     },
 ]
 export default curso;

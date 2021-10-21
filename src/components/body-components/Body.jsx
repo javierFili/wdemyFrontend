@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Carrusel from './carrucel/Carrusel';
-import Filtro from './filtro/Filtro';
+
 
 const Body =()=>{
     return (
@@ -22,17 +22,10 @@ const Body =()=>{
                         </h3>
                         </p>   
                 </div>
-           
-                <div class="BodyPart">
-                    <div class="carrusel">
-                        <Filtro/>
-                    </div>
-                        
-                </div>
            </div>
            <div class="BodyPart">
                 <Carrusel 
-                        
+ 
                     />
            </div>
 
