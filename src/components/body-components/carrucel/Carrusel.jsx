@@ -9,7 +9,8 @@ const MyCarousel = props => (
     <div className="App">
       <ul>
 
-        {curso.filter(curso => curso.actualizacion != "20/10/21").map(curso => (
+        {curso.filter(curso => curso.actualizacion != "20/10/21" && 
+          curso.palsClavs.includes("programacion")==true).map(curso => (
         <option key={curso.imagen} value={curso.actualizacion} 
           value={curso.tutor}>{curso.actualizacion}, {curso.imagen},{curso.tutor}</option>))
         }
