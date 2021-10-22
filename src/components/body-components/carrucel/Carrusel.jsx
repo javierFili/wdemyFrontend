@@ -21,8 +21,6 @@ class Filtro extends Component{
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.botonPulsado.bind(this);
-    /* nombreAbuscar=this.state.value; */
-
   }
 
   handleChange(event) {
@@ -51,29 +49,27 @@ class Filtro extends Component{
       )
     }
 }
-var nombreAbuscar="programacion";
-const MyCarousel = props => (
-  <div >
-    <div className="App">
-      <ul>
-        {curso.filter(curso => curso.actualizacion != "21/10/21" && 
-          curso.palsClavs.includes(nombreAbuscar)).map((curso) => {
-          return (
-            <div id="esta" width="80px" height="600px">
-                <li>
-                  {curso.imagen}  {curso.actualizacion} {curso.tutor} 
-                </li>
-            </div>
-          );
-        })}
-      </ul>
-    </div>
-  </div>
-)
+var nombreAbuscar=" ";
 
 export default class Carrusel extends Component {
   
   render() {
+    const MyCarousel = props => (
+      <div >
+        <div className="App">
+          <ul>
+            {curso.filter(curso => nombreAbuscar==" "||
+              curso.palsClavs.includes(nombreAbuscar)).map((curso) => {
+              return (
+                <div id="esta" >
+                      {curso.imagen}  {curso.actualizacion} {curso.tutor} 
+                </div>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    )
     return (
         <main role="main">
           <Filtro />
