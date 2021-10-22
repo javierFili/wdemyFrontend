@@ -6,18 +6,18 @@ const curso = [
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
         "titulo":"Angular",
-        "palsClavs":'[programacion,web,softare]'
+        "palsClavs":'[programacion,web,softare,a]'
     },
     {
-        "id": 1,
+        "id": 2,
         "actualizacion": "22/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
         "titulo":"Angular",
-        "palsClavs":'[web,softare,aa]'
+        "palsClavs":'[web,softare,aa,a]'
     },
     {
-        "id": 1,
+        "id": 3,
         "actualizacion": "23/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
@@ -25,14 +25,14 @@ const curso = [
         "palsClavs":'[programacion,web,softare]'
     },
     {
-        "id": 1,
+        "id": 4,
         "actualizacion": "11/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay","titulo":"Angular",
         "palsClavs":'[programacion,web,softare]'
     },
     {
-        "id": 1,
+        "id": 5,
         "actualizacion": "23/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
@@ -40,7 +40,7 @@ const curso = [
         "palsClavs":'[programacion,web,]'
     },
     {
-        "id": 1,
+        "id": 6,
         "actualizacion": "18/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay","titulo":"Angular",
@@ -49,7 +49,7 @@ const curso = [
         "palsClavs":'[programacion,web,softare]'
     },
     {
-        "id": 1,
+        "id": 7,
         "actualizacion": "01/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
@@ -57,12 +57,12 @@ const curso = [
         "palsClavs":'[programacion,web,softare]'
     },
     {
-        "id": 1,
+        "id": 8,
         "actualizacion": "21/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
         "titulo":"Angular",
-        "palsClavs":'[programacion,softare]'
+        "palsClavs":'[programacion,softare,javi]'
     },
 ]
 export default curso;

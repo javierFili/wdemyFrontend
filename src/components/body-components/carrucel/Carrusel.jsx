@@ -12,47 +12,53 @@ import React, { Component } from 'react';
 
 import curso from '../../../data/Pruebas';
 
-var nombreAbuscar=" ";
 
-export default class Carrusel extends Component {
+
+class Filtro extends Component{
+  nombreAbuscar=' ';
   constructor(props){
     super(props);
-    this.state = {value: ''};
-
+    this.state = {value: ' '};
+    /* this.state = ''; */
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.botonPulsado.bind(this);
+   /*  this.MyCarousel = this.MyCarousel.bind(this); */
+    this.nombreAbuscar=" ";
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
-    
+    //este esta raro igual, no esta cambiando el valor de STATE por 
+    //ende estate no cambia el valor de nombreAbuscar
+    this.setState({value: event.target.value}); 
+    /* this.state = event.target.value; */
+
   }
 
   botonPulsado(event) {
-    alert('buscando cursos de ' + this.state.value);
-    nombreAbuscar = this.state.value;
-    
+    alert("esta entrando:")
+    this.nombreAbuscar = this.state.value();
     event.preventDefault();
+    this.render();
+    
   }
-
+  
   render() {
-    const Filtro =()=> (
+    return (
       <>     
         <form onSubmit={this.botonPulsado}>
         <label>
           filtro de cursos:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          <input type="text"  value={this.state.value} onChange={this.handleChange} />
         </label>
         <input type="submit" value="buscar" />
-        </form>       
-      </>
-    )
-    const MyCarousel = props => (
-      <div >
-        <div className="App">
+        </form>
+
+        <div >
+          <div className="App">
           <ul>
-            {curso.filter(curso => nombreAbuscar==" "||
-              curso.palsClavs.includes(nombreAbuscar)).map((curso) => {
+            {/* this.nombreAbuscar=' ' esta raro */}
+            {curso.filter(curso => this.nombreAbuscar === " "|| 
+              curso.palsClavs.includes(this.nombreAbuscar)).map((curso) => {
               return (
                 <div id="esta" >
                       {curso.imagen}  {curso.actualizacion} {curso.tutor} 
@@ -60,26 +66,41 @@ export default class Carrusel extends Component {
               );
             })}
           </ul>
+          </div>
         </div>
-      </div>
+        
+      </>
     )
-    return (
-        <main role="main">
-          <Filtro />
-          <MyCarousel />
-        </main>
-    );
   }
+
 }
 
 
 
+export default class Carrusel extends Component {
 
+  render() {   
+     return (
+        <main role="main">
+          <Filtro 
+            /* onText={codigo => {
+              const producto = dbProductos[codigo];
 
+              if (!producto) {
+                alert("El producto no existe :(");
+                return;
+              }
 
+              setCurrentListaProductos([
+                ...(currentListaProductos || []),
+                producto
+              ]);
+            }} */
 
-
-
-
-
-
+          />
+         
+        </main>
+        
+    );
+  }
+}
