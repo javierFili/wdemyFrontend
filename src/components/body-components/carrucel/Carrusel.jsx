@@ -6,62 +6,66 @@ poner condicional y boton
 la condiocional solo agrega a 4 o mas elementos ..si es mejor a 4 los centra
 el boton son dos , uno adelante si aun hay elemetos adelante, atras si hay elemtos atras
 si no los hay debes hacer desaparecer el boton
-
 */
 import React, { Component } from 'react';
 
 import curso from '../../../data/Pruebas';
 
-
-
 class Filtro extends Component{
-  nombreAbuscar=' ';
+  /* nombreAbuscar=' '; */
   constructor(props){
     super(props);
-    this.state = {value: ' '};
+    this.state = {value: ""};
     /* this.state = ''; */
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.botonPulsado.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
    /*  this.MyCarousel = this.MyCarousel.bind(this); */
-    this.nombreAbuscar=" ";
+    this.nombreAbuscar="";
   }
 
   handleChange(event) {
-    //este esta raro igual, no esta cambiando el valor de STATE por 
-    //ende estate no cambia el valor de nombreAbuscar
-    this.setState({value: event.target.value}); 
-    /* this.state = event.target.value; */
-
+    this.setState({value: event.target.value});
   }
 
-  botonPulsado(event) {
-    alert("esta entrando:")
-    this.nombreAbuscar = this.state.value();
-    event.preventDefault();
-    this.render();
-    
+  handleSubmit(event) {
+    alert('A name was submitted:'+ this.nombreAbuscar);
+    this.nombreAbuscar = this.state.value;
+    alert('A name was submitted:'+ this.nombreAbuscar);
+    event.preventDefault();  
+    /* this.render(); */
   }
   
   render() {
     return (
       <>     
-        <form onSubmit={this.botonPulsado}>
+        <form onSubmit={this.handleSubmit}>
         <label>
           filtro de cursos:
           <input type="text"  value={this.state.value} onChange={this.handleChange} />
         </label>
-        <input type="submit" value="buscar" />
+        <input type="button" value="buscar" onClick={this.handleSubmit} />
+
         </form>
 
         <div >
           <div className="App">
           <ul>
-            {/* this.nombreAbuscar=' ' esta raro */}
-            {curso.filter(curso => this.nombreAbuscar === " "|| 
-              curso.palsClavs.includes(this.nombreAbuscar)).map((curso) => {
+            
+            {
+              
+            curso.filter(curso =>curso.palsClavs.includes(this.nombreAbuscar) ||
+              this.nombreAbuscar === "" ).map((curso) => {
               return (
                 <div id="esta" >
-                      {curso.imagen}  {curso.actualizacion} {curso.tutor} 
+                      <h3>{curso.titulo}</h3>
+                      <br />                    
+                      {curso.imagen}
+                      <br />
+                      {curso.actualizacion}
+                      <br />
+                      {curso.tutor} 
+                      <br />
+                      {this.nombreAbuscar}
                 </div>
               );
             })}
@@ -83,20 +87,6 @@ export default class Carrusel extends Component {
      return (
         <main role="main">
           <Filtro 
-            /* onText={codigo => {
-              const producto = dbProductos[codigo];
-
-              if (!producto) {
-                alert("El producto no existe :(");
-                return;
-              }
-
-              setCurrentListaProductos([
-                ...(currentListaProductos || []),
-                producto
-              ]);
-            }} */
-
           />
          
         </main>
