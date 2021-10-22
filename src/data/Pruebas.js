@@ -64,6 +64,14 @@ const curso = [
         "titulo":"Angular",
         "palsClavs":'[programacion,softare,javi]'
     },
+    {
+        "id": 9,
+        "actualizacion": "21/10/21",
+        "tutor": "javier Fili ",
+        "imagen":"aun no hay",
+        "titulo":"Angular",
+        "palsClavs":'[led]'
+    }
 ]
 export default curso;
 
