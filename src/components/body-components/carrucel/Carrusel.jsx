@@ -12,9 +12,9 @@ import React, { Component } from 'react';
 
 import curso from '../../../data/Pruebas';
 
+var nombreAbuscar=" ";
 
-class Filtro extends Component{
-  
+export default class Carrusel extends Component {
   constructor(props){
     super(props);
     this.state = {value: ''};
@@ -34,26 +34,19 @@ class Filtro extends Component{
     
     event.preventDefault();
   }
-  render() {
 
-      return (
-          <>     
-            <form onSubmit={this.botonPulsado}>
-            <label>
-              filtro de cursos:
-              <input type="text" value={this.state.value} onChange={this.handleChange} />
-            </label>
-            <input type="submit" value="buscar" />
-            </form>       
-          </>
-      )
-    }
-}
-var nombreAbuscar=" ";
-
-export default class Carrusel extends Component {
-  
   render() {
+    const Filtro =()=> (
+      <>     
+        <form onSubmit={this.botonPulsado}>
+        <label>
+          filtro de cursos:
+          <input type="text" value={this.state.value} onChange={this.handleChange} />
+        </label>
+        <input type="submit" value="buscar" />
+        </form>       
+      </>
+    )
     const MyCarousel = props => (
       <div >
         <div className="App">
