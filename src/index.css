@@ -7,7 +7,6 @@
 }
 #titulo{
   margin-block-end: 100px;
-  
   color: white;
 }
 .descripcion{
@@ -29,9 +28,7 @@
   margin-top: 10%;
 }
 
-.filtroText{
-  margin-top: 10px;
-}
+
 .fondo {
   background-image: url(./imagenes/chicaCompu.jpeg); 
   min-height: 750px;
@@ -46,12 +43,33 @@
 /*La parte de carrucel*/
 #esta {
   display: inline-block;
-  width: 300px;
-  height: 300px;
+  width: 290px;
+  height: 400px;
   border: 1px solid black;
   margin-left: 1%;
   margin-bottom: 1%;
+  border-radius: 20px;
 }
 
+.carruPrincial{
+  display: grid;
+  grid-template-columns: 0.09% 98% 0.1%;
+}
+
+.carruDere{
+  margin-top: 180px;
+
+}
+
+.carruIzq{
+  margin-top: 180px;
+}
+
+.carruMedio{
+  opacity: 0.8;
+  background-color: aquamarine;
+  margin-left: 3%;
+  border-radius: 20px;
+}
 
 
