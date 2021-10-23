@@ -19,27 +19,39 @@ class Filtro extends Component{
     this.setState({value: event.target.value});
   }
 
-  handleSubmit(event) {
-     
+  handleSubmit(event) { 
     this.nombreAbuscar = this.state.value;
     event.preventDefault()
     
   }
-  sacar() {
+  sacar(event) {
     var filtracion= curso.filter(curso =>curso.palsClavs.includes(this.nombreAbuscar) ||
     this.nombreAbuscar === "" );
-    if(filtracion.length >4 ){
+    if(filtracion.length > this.numActual + 4 ){
+      alert("entro");
       filtracion = filtracion.splice(this.numActual,this.numActual+4);
+      // se habilita boton de la derecha
+      
     }else{
       if(filtracion.length === 0){
        // alert("no hay ese tipo de nombre")
         
+      }else{
+        alert("no hay ");
       }
     }
     
+    /* event.preventDefault(); */
+
     return filtracion;
   }
+
   flechaIqzClickada(){
+    if(this.numActual+4<=3){
+
+    }else{
+
+    }
     this.numActual=this.numActual-4;
     this.handleSubmit();
   }

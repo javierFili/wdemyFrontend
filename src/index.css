@@ -1,7 +1,7 @@
 /**/
 
 /* La parte del APPBAR*/
-#appBar{
+/* #appBar{
   height: 60px;
   background-color: #2F5D62;
 }
@@ -22,8 +22,8 @@
   margin:auto;
   text-align:center;
   
-}
-.introTit{
+} */
+/* .introTit{
   display: inline-flex;
   margin-top: 10%;
 }
@@ -38,7 +38,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
+} */
 
 /*La parte de carrucel*/
 #esta {
@@ -58,7 +58,6 @@
 
 .carruDere{
   margin-top: 180px;
-
 }
 
 .carruIzq{
@@ -67,7 +66,7 @@
 
 .carruMedio{
   opacity: 0.8;
-  background-color: aquamarine;
+  background-color: #DFEEEA;
   margin-left: 3%;
   border-radius: 20px;
 }
