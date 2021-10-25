@@ -4,19 +4,6 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-
-
-import AppBar from './components/appBarComponents/AppBar';
-import Body from './components/body-components/Body';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
-import Inicio from './components/VistaInfoCurso/Inicio'
-
-
 ReactDOM.render(
   <React.StrictMode>
    <App>

@@ -1,13 +1,12 @@
-
 import AppBar from './components/appBarComponents/AppBar';
 import Body from './components/body-components/Body';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,useParams
-} from "react-router-dom";
-//import Inicio from './components/VistaInfoCurso/Inicio'
+import { useParams } from 'react-router';
+  import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+  } from "react-router-dom";
+import Inicio from './components/VistaInfoCurso/Inicio'
 
 function VistaGeneral(){
   return(
@@ -50,31 +49,33 @@ function App() {
   return(
     <Router>
         <Switch>
-          {/* <Route path={{ pathname: "/Inicio/:id" }}> */}
-          <Route path={"/Inicio/:entrada" }>
-              <VistaCurso>
-    
-              </VistaCurso>
-              
-            </Route>          
+                   
   
-            <Route path='/' exact>
+            <Route exact path='/' >
               <VistaGeneral>
                 
               </VistaGeneral>
             </Route>
   
+            {/* path="/blog/:slug" */}
+            <Route path="/Inicio/:entrada">  
+              <VistaCurso>
+                  
+              </VistaCurso>
+              
+            </Route> 
+
         </Switch>
       </Router>
   );
   
 }
 
- const Inicio = ()=>{
+ /* const Inicio = ()=>{
     const {entrada} = useParams();
     
       return <span>ID: {entrada}</span>;
-}
+} */
 
 
 export default App;

@@ -1,17 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    useParams
-  } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const Inicio = ()=>{
-    const {entrada} = useParams();
-    console.log(entrada);
-    console.log(useParams());
-    return <span>ID: {entrada}</span>;
+    let {entrada} = useParams();
+
+   return(
+       <div>
+
+           {entrada}
+
+       </div>
+   )
 }
 
 export default Inicio;
