@@ -58,37 +58,43 @@ class Filtro extends Component{
       var filtracion2 = aRecor.slice(this.numActual,filtracion.length);
       
     }
-    /**ojala funcione, ya que nesecitamos actualizar la vista constantemente. */
-    if(filtracion2.length > this.numSig && this.numActual > 4){
-      //ambos botones estan activos y prendidos 
-      //ojo solo debemos mostrar 4 elementos en la pantalla
-      this.estadoBotDere = true;
-      this.estadoBotIzq = true;
-      this.forceUpdate();
-    }else{
-      if(this.numActual==0 && filtracion2.length > 4){
-        //se muestra solo el boton de la derecha 
+    
+      if(filtracion.length > this.numSig && this.numActual >= 3){
+        //ambos botones estan activos y prendidos 
+        //ojo solo debemos mostrar 4 elementos en la pantalla
         this.estadoBotDere = true;
-        this.estadoBotIzq = false;  
-        this.forceUpdate();
+        this.estadoBotIzq = true;
+        console.log("ambos estan predidos");
+        console.log(this.estadoBotDere+"  "+this.estadoBotIzq);
       }else{
-        if(filtracion.length < 4){
-          //ningun boton esta activo
-          this.estadoBotDere = false;
-          this.estadoBotIzq = false;     
-          this.forceUpdate();
-        }else{  
-          if(this.numSig === this.numFiltrado){
-            //este esta de cosiderar,revisar funcionalidad.
-            //es boton izquierda encendio
-            this.estadoBotIzq =true;
+        if(this.numActual == 0 && filtracion2.length >= 4){
+          //se muestra solo el boton de la derecha 
+          this.estadoBotDere = true;
+          this.estadoBotIzq = false;  
+          console.log('el boton dere habilitado, izq bloqueado');
+          console.log(this.estadoBotDere+"  "+this.estadoBotIzq);
+          //funca
+        }else{
+          if(filtracion.length < 4){
+            //ningun boton esta activo
             this.estadoBotDere = false;
-            this.forceUpdate();
-          }else{
+            this.estadoBotIzq = false;     
+            console.log('ambos botones estan bloqueados');
+            console.log(this.estadoBotDere+"  "+this.estadoBotIzq);
+          }else{  
+            if(this.numSig >=1 || this.numSig === this.numFiltrado  ){
+              //este esta de cosiderar,revisar funcionalidad.
+              //es boton izquierda encendio
+              this.estadoBotIzq =true;
+              this.estadoBotDere = false;
+              console.log('el boton izq esta habilitado, la dere esta bloqueada');
+              console.log(this.estadoBotDere+"  "+this.estadoBotIzq);
+            }else{
+              console.log("no entra a ninguna");
+            }
           }
         }
       }
-    }
     return filtracion2;
   }
   
@@ -97,19 +103,16 @@ class Filtro extends Component{
     if(this.numActual > 0 ){
       this.numSig = this.numActual;
       this.numActual = this.numActual-4;
-    
-      console.log("entraIf-");
-      this.forceUpdate();
     }else{
-        //no hace nada ni siquiera se ve el boton
-        console.log("entraElse");
+      this.forceUpdate();
     }
-    
+    this.forceUpdate();
   }
 
   flechaDereClickada(){
     if(this.numSig === this.numFiltrado){
       //no hace nada ojo!!!  ni aparece el boton
+      this.forceUpdate();
     }else{
       if(this.numSig+4 < this.numFiltrado){       
         this.numActual = this.numSig;
@@ -155,32 +158,32 @@ class Filtro extends Component{
             </div>
             
             <div className="carruMedio">
-            <ul>
-            {
-            this.sacar().map(curso => {
-               return(
-                <div id="esta" > 
-                     <button class="elementos-carrusel" onClick={this.refrescarPagina}>
-                    <Link className='linkInial' to={`/Inicio/${curso.id}`}>
-                      <ul key={curso.id}>
-                          <h3>{curso.titulo}</h3>
-                          <br />                    
-                          {curso.imagen}
-                          <br />
-                          {curso.actualizacion}
-                          <br />
-                          {curso.tutor} 
-                          <br />
-                          {this.nombreAbuscar}
-                        </ul>
-                    </Link>
-                    </button> 
-                </div>                  
-                )
-               })
-            }
-            </ul>
-          </div>
+              <ul>
+              {
+              this.sacar().map(curso => {
+                return(
+                  <div id="esta" > 
+                      <button class="elementos-carrusel" onClick={this.refrescarPagina}>
+                      <Link className='linkInial' to={`/Inicio/${curso.id}`}>
+                        <ul key={curso.id}>
+                            <h3>{curso.titulo}</h3>
+                            <br />                    
+                            {curso.imagen}
+                            <br />
+                            {curso.actualizacion}
+                            <br />
+                            {curso.tutor} 
+                            <br />
+                            {this.nombreAbuscar}
+                          </ul>
+                      </Link>
+                      </button> 
+                  </div>                  
+                  )
+                })
+              }
+              </ul>
+           </div>
 
           <div class="carruDere">
             {this.estadoBotDere ?  <button class="flechaDer" onClick={this.flechaDereClickada}>
