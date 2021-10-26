@@ -10,35 +10,26 @@ export default class AppBar extends React.Component {
     constructor(props){
         super(props);
         this.refrescar = this.refrescar.bind(this);
-    
-
     }
     refrescar(params) {
         
         window.location.href = window.location.href;    
     }
 
-        render(){
-            
-            const Menu = props => (
-                <div id="appBar">                    
-                    <div>
-                    <button class="Bt-Wdemy" onClick={this.refrescar}>
-                    <Link to='/'>
-                        <h1>Wdemy</h1>
-                    </Link>
-                    </button>
-                    </div>                  
-                </div>
-            )
-            return (
-                <>
-                <div id="menu">
-                    <Menu />
-                </div>
-                </>
-            )
-        }
-    
+    render(){ 
+        const Menu = props => (    
+            <button className="Bt-Wdemy"  onClick={this.refrescar}>
+                <Link className='linkInial' to='/' >
+                    <h1 class='titulo'>Wdemy</h1>
+                </Link>
+                    
+            </button>
+        )
+        return (
+            <div class="appBar">
+                <Menu />
+            </div>
+        )
+    }          
 }
 

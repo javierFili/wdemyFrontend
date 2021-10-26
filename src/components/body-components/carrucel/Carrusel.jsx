@@ -64,22 +64,26 @@ class Filtro extends Component{
       //ojo solo debemos mostrar 4 elementos en la pantalla
       this.estadoBotDere = true;
       this.estadoBotIzq = true;
+      this.forceUpdate();
     }else{
       if(this.numActual==0 && filtracion2.length > 4){
         //se muestra solo el boton de la derecha 
         this.estadoBotDere = true;
-        this.estadoBotIzq = false;
+        this.estadoBotIzq = false;  
+        this.forceUpdate();
       }else{
         if(filtracion.length < 4){
           //ningun boton esta activo
           this.estadoBotDere = false;
           this.estadoBotIzq = false;     
+          this.forceUpdate();
         }else{  
           if(this.numSig === this.numFiltrado){
             //este esta de cosiderar,revisar funcionalidad.
             //es boton izquierda encendio
             this.estadoBotIzq =true;
             this.estadoBotDere = false;
+            this.forceUpdate();
           }else{
           }
         }
@@ -124,18 +128,18 @@ class Filtro extends Component{
   render() {
     return (
       <>     
-          <form onSubmit={this.handleSubmit} >
+          <form className='filtro' onSubmit={this.handleSubmit} >
             <label>
               filtro de cursos:
               <input type="text"  value={this.state.value} onChange={this.handleChange} />
-              <input type="submit" value="Submit"/>
+              <input type="submit" value="Filtrar"/>
             </label>
             
           </form>
 
         <div class="carruPrincial" >
           <div class="carruIzq">
-            <button class="flechaIzq" onClick={this.flechaIqzClickada}>
+            {this.estadoBotIzq ? <button class="flechaIzq" onClick={this.flechaIqzClickada}>
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz3
             4AAAAAXNSR0IArs4c6QAAAalJREFUSEuNVe11wzAIPCZoNqg3cDpBvUGzSb1BskmyQTNKNlIfMp
             aQADn6Yz99cdwdiHA4CECSXc6/mZKJ/CHwpwy9N0/qvXrCHDInm7NOAOeACcDoEoM8I+Euy18lW
@@ -146,7 +150,8 @@ class Filtro extends Component{
             kLjbD4OBK+F1tSBq5d5DzibJ4DvENHGoFMHQ1jGRSubgLPxn5lO9eOnRfeosnsC6ElIc+M0obwv
             9Hc0CFpPzoSrfh9BHeg34MBWTsb86LABeMgDNIjYKGT8HlX1gAQN/p2eY/YPfQ78A6S4rx5p6Ig
             UAAAAAElFTkSuQmCC"/>
-            </button>
+            </button> :null}
+            
             </div>
             
             <div className="carruMedio">
@@ -156,8 +161,8 @@ class Filtro extends Component{
                return(
                 <div id="esta" > 
                      <button class="elementos-carrusel" onClick={this.refrescarPagina}>
-                    <Link to={`/Inicio/${curso.id}`}>
-                      <li key={curso.id}>
+                    <Link className='linkInial' to={`/Inicio/${curso.id}`}>
+                      <ul key={curso.id}>
                           <h3>{curso.titulo}</h3>
                           <br />                    
                           {curso.imagen}
@@ -167,7 +172,7 @@ class Filtro extends Component{
                           {curso.tutor} 
                           <br />
                           {this.nombreAbuscar}
-                        </li>
+                        </ul>
                     </Link>
                     </button> 
                 </div>                  
@@ -178,8 +183,7 @@ class Filtro extends Component{
           </div>
 
           <div class="carruDere">
-
-            <button class="flechaDer" onClick={this.flechaDereClickada}>
+            {this.estadoBotDere ?  <button class="flechaDer" onClick={this.flechaDereClickada}>
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz
                       34AAAAAXNSR0IArs4c6QAAAbNJREFUSEudleF1wjAMhD9t1I7CBnSDjhA2gBG6Ad
                       2AbpBuQDeACdTnxImlWKJ95FeCsaQ7nU5C+Aig60n7qm/+OA4x/SqUv/7xPBNUa3l
@@ -191,8 +195,8 @@ class Filtro extends Component{
                       2APnx7bhKHL8PhrQT4R9kWNilN2yylXkeb+DDIIeoyl8JISwB9bIQL8qJWVq48Xi6
                       jZd2wRaTmyRZdkMdfn0YYId4OYgWE5Ft2OFXBo5dn7lnD0pvWYxg+bDmP0cLLztdv
                       HzbfuRJAhpzhy52UnQoF9BntojuCNehAAAAABJRU5ErkJggg=="/>          
-            </button>
-
+            </button> : null}
+            
           </div>
         </div>
 

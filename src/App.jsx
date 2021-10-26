@@ -11,16 +11,12 @@ import Inicio from './components/VistaInfoCurso/Inicio'
 function VistaGeneral(){
   return(
     <Router>
-      <div>
         <AppBar 
 
         />
-      </div>
-      <div class="fondo">
         <Body
           
         />
-      </div>
       </Router>
   );
 
