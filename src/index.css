@@ -19,6 +19,7 @@
   height: 100px;
   margin-top: -1%;
   background-color: #2F5D62;
+ 
 }
 
 /*La parte del body, fondo
@@ -51,15 +52,15 @@
   margin-left: 14%;
   text-align: center;
   opacity: 0.5  ;
+  overflow:auto;
 }
-
 /*La parte de carrucel , filtro*/
 .filtro{
   margin-left: 70%;
   margin-bottom: 1%;
 }
 
-#esta {
+#elementosDelCarrusel {
   display:inline-table;
   width: 270px;
   height: 350px;
@@ -105,5 +106,10 @@
   border-radius: 20px;
   height: 100%;
   width: 95%;
-  /* margin-left: 30px; */
+  overflow: scroll
+}
+
+.Bt-Flecha{
+  border:none;
+  background-color: rgba(3, 3, 3, 0);;
 }

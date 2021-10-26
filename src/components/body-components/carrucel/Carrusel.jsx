@@ -24,6 +24,8 @@ class Filtro extends Component{
     this.refrescarPagina = this.refrescarPagina.bind(this);
     this.numFiltrado=0;
 
+    this.elemtVacio = false;
+
   }
 
   handleChange(event) {
@@ -58,7 +60,12 @@ class Filtro extends Component{
       var filtracion2 = aRecor.slice(this.numActual,filtracion.length);
       
     }
-    
+    if(filtracion.length===0){
+      this.elemtVacio = true;
+    }else{
+      this.elemtVacio = false;
+    }
+
       if(filtracion.length > this.numSig && this.numActual >= 3){
         //ambos botones estan activos y prendidos 
         //ojo solo debemos mostrar 4 elementos en la pantalla
@@ -133,7 +140,7 @@ class Filtro extends Component{
       <>     
           <form className='filtro' onSubmit={this.handleSubmit} >
             <label>
-              filtro de cursos:
+              Filtro de cursos:
               <input type="text"  value={this.state.value} onChange={this.handleChange} />
               <input type="submit" value="Filtrar"/>
             </label>
@@ -142,7 +149,7 @@ class Filtro extends Component{
 
         <div class="carruPrincial" >
           <div class="carruIzq">
-            {this.estadoBotIzq ? <button class="flechaIzq" onClick={this.flechaIqzClickada}>
+            {this.estadoBotIzq ? <button class="Bt-Flecha" onClick={this.flechaIqzClickada}>
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz3
             4AAAAAXNSR0IArs4c6QAAAalJREFUSEuNVe11wzAIPCZoNqg3cDpBvUGzSb1BskmyQTNKNlIfMp
             aQADn6Yz99cdwdiHA4CECSXc6/mZKJ/CHwpwy9N0/qvXrCHDInm7NOAOeACcDoEoM8I+Euy18lW
@@ -159,10 +166,13 @@ class Filtro extends Component{
             
             <div className="carruMedio">
               <ul>
+              {this.elemtVacio ? 
+                  <h1>Lo sentimos no hay cursos con ese nombre</h1> : null
+              }
               {
               this.sacar().map(curso => {
                 return(
-                  <div id="esta" > 
+                  <div id="elementosDelCarrusel" > 
                       <button class="elementos-carrusel" onClick={this.refrescarPagina}>
                       <Link className='linkInial' to={`/Inicio/${curso.id}`}>
                         <ul key={curso.id}>
@@ -173,8 +183,7 @@ class Filtro extends Component{
                             {curso.actualizacion}
                             <br />
                             {curso.tutor} 
-                            <br />
-                            {this.nombreAbuscar}
+                            
                           </ul>
                       </Link>
                       </button> 
@@ -186,7 +195,7 @@ class Filtro extends Component{
            </div>
 
           <div class="carruDere">
-            {this.estadoBotDere ?  <button class="flechaDer" onClick={this.flechaDereClickada}>
+            {this.estadoBotDere ?  <button class="Bt-Flecha" onClick={this.flechaDereClickada}>
             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz
                       34AAAAAXNSR0IArs4c6QAAAbNJREFUSEudleF1wjAMhD9t1I7CBnSDjhA2gBG6Ad
                       2AbpBuQDeACdTnxImlWKJ95FeCsaQ7nU5C+Aig60n7qm/+OA4x/SqUv/7xPBNUa3l

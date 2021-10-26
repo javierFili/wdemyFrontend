@@ -13,7 +13,7 @@ const curso = [
         "actualizacion": "22/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
-        "titulo":"Angular",
+        "titulo":"PHP",
         "palsClavs":'[web,softare,aa,a]'
     },
     {
@@ -21,14 +21,15 @@ const curso = [
         "actualizacion": "23/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
-        "titulo":"Angular",
+        "titulo":"REACT",
         "palsClavs":'[programacion,web,softare]'
     },
     {
         "id": 4,
+        "titulo":"PYTHON",
         "actualizacion": "11/10/21",
         "tutor": "javier Fili ",
-        "imagen":"aun no hay","titulo":"Angular",
+        "imagen":"aun no hay",
         "palsClavs":'[programacion,web,softare]'
     },
     {
@@ -36,7 +37,7 @@ const curso = [
         "actualizacion": "23/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
-        "titulo":"Angular",
+        "titulo":"JAVA",
         "palsClavs":'[programacion,web,]'
     },
     {
@@ -45,7 +46,7 @@ const curso = [
         "tutor": "javier Fili ",
         "imagen":"aun no hay","titulo":"Angular",
         "palsClavs":'[programacion,web,softare]',
-        "titulo":"Angular",
+        "titulo":"JAVASCRIPT",
         "palsClavs":'[programacion,web,softare]'
     },
     {
@@ -53,7 +54,7 @@ const curso = [
         "actualizacion": "01/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
-        "titulo":"Angular",
+        "titulo":"CALCULO l",
         "palsClavs":'[programacion,web,softare]'
     },
     {
@@ -61,7 +62,7 @@ const curso = [
         "actualizacion": "21/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
-        "titulo":"Angular",
+        "titulo":"INTRO",
         "palsClavs":'[programacion,softare,javi]'
     },
     {
@@ -69,7 +70,7 @@ const curso = [
         "actualizacion": "21/10/21",
         "tutor": "javier Fili ",
         "imagen":"aun no hay",
-        "titulo":"Angular",
+        "titulo":"ELEMENTOS",
         "palsClavs":'[led]'
     }
 ]
