@@ -40,9 +40,10 @@ class Filtro extends Component{
     this.nombreAbuscar = this.state.value;
     this.numActual = 0;
     this.numSig = 4;
+    this.forceUpdate();
     event.preventDefault();
-    
   }
+
   sacar(event) {
     var filtracion= curso.filter(curso =>curso.palsClavs.includes(this.nombreAbuscar) ||
     this.nombreAbuscar === "" );
@@ -69,11 +70,11 @@ class Filtro extends Component{
       this.numSig = this.numSig+4;
 
    }
-   console.log("en el metodo fechaDereClickada "+this.numActual+" hasta "+this.numSig);
-   
+   this.forceUpdate();
   }
 
   flechaIqzClickada(){
+
   }
   
 
