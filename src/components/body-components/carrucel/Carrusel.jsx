@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import React, { useState } from 'react';
 import curso from '../../../data/Pruebas';
 import {
   Link
@@ -52,36 +51,65 @@ class Filtro extends Component{
     if(filtracion.length > this.numSig){
       var aRecor = filtracion.slice();
       var filtracion2 = aRecor.slice(this.numActual,this.numSig);
-      return filtracion2;
+      
     }else{
       console.log('entra');
       var aRecor = filtracion.slice();
       var filtracion2 = aRecor.slice(this.numActual,filtracion.length);
-      return filtracion2;
+      
     }
+    /**ojala funcione, ya que nesecitamos actualizar la vista constantemente. */
+    if(filtracion2.length > this.numSig && this.numActual > 4){
+      //ambos botones estan activos y prendidos 
+      //ojo solo debemos mostrar 4 elementos en la pantalla
+      this.estadoBotDere = true;
+      this.estadoBotIzq = true;
+    }else{
+      if(this.numActual==0 && filtracion2.length > 4){
+        //se muestra solo el boton de la derecha 
+        this.estadoBotDere = true;
+        this.estadoBotIzq = false;
+      }else{
+        if(filtracion.length < 4){
+          //ningun boton esta activo
+          this.estadoBotDere = false;
+          this.estadoBotIzq = false;     
+        }else{  
+          if(this.numSig === this.numFiltrado){
+            //este esta de cosiderar,revisar funcionalidad.
+            //es boton izquierda encendio
+            this.estadoBotIzq =true;
+            this.estadoBotDere = false;
+          }else{
+          }
+        }
+      }
+    }
+    return filtracion2;
   }
   
   flechaIqzClickada(){
-    if(this.numActual > 4 && this.numSig < this.numFiltrado){
+    
+    if(this.numActual > 0 ){
+      this.numSig = this.numActual;
       this.numActual = this.numActual-4;
-      this.numSig = this.numSig-4;
+    
+      console.log("entraIf-");
+      this.forceUpdate();
     }else{
         //no hace nada ni siquiera se ve el boton
+        console.log("entraElse");
     }
-    this.forceUpdate();
+    
   }
 
   flechaDereClickada(){
     if(this.numSig === this.numFiltrado){
       //no hace nada ojo!!!  ni aparece el boton
     }else{
-      if(this.numSig+4 < this.numFiltrado){
-        console.log('Funcion flechaDereClickada');
-        
-        console.log('numActual: '+this.numActual +' numSig: '+this.numSig);
+      if(this.numSig+4 < this.numFiltrado){       
         this.numActual = this.numSig;
         this.numSig +=4; 
-        console.log('numActual: '+this.numActual +' numSig: '+this.numSig);
       }else{
         this.numActual = this.numSig;
         this.numSig =  this.numFiltrado;
@@ -189,31 +217,3 @@ function Carrusel(params) {
   
 }
 export default Carrusel;
-
-
-/* if(filtracion.length > this.numActual + 4 && this.numActual > 4){
-      //ambos botones estan activos y prendidos 
-      //ojo solo debemos mostrar 4 elementos en la pantalla
-    }else{
-      if(this.numActual==0 && filtracion.length > 4){
-        //se muestra solo el boton de la derecha 
-      }else{
-        if(filtracion.length < 4){
-          //ningun boton esta activo
-          //esta de poner condiciones de reduccion de componentes
-          ('carruIzq')
-        }else{  
-          if(this.numActual>=4 ){
-            //este esta de cosiderar,revisar funcionalidad.
-            //es boton izquierda encendio
-            //esta de poner condiciones de reduccion de componentes
-          }else{
-
-          }
-        }
-      }
-    } */
-
-    //revisar algoritmos de corte ojo...para ambos casos
-    //cuando esta a extremo derecha y solo hay menos de 4
-    // y el otro cuando esta en el princiopio con menor igual a 4.
