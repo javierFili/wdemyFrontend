@@ -23,6 +23,7 @@ class Filtro extends Component{
     this.estadoBotIzq  = false;
 
     this.refrescarPagina = this.refrescarPagina.bind(this);
+    this.numFiltrado=0;
 
   }
 
@@ -47,36 +48,47 @@ class Filtro extends Component{
   sacar(event) {
     var filtracion= curso.filter(curso =>curso.palsClavs.includes(this.nombreAbuscar) ||
     this.nombreAbuscar === "" );
-    
+    this.numFiltrado = filtracion.length;
     if(filtracion.length > this.numSig){
-      filtracion = filtracion.splice(this.numActual,this.numSig);
+      var aRecor = filtracion.slice();
+      var filtracion2 = aRecor.slice(this.numActual,this.numSig);
+      return filtracion2;
     }else{
-      
+      console.log('entra');
+      var aRecor = filtracion.slice();
+      var filtracion2 = aRecor.slice(this.numActual,filtracion.length);
+      return filtracion2;
     }
-    console.log('en el modo sacar '+this.numActual + ' hasta ' + this.numSig);
-    return filtracion;
   }
   
-  flechaDereClickada(){
-    var limiteCompo = this.sacar.length;
-    if(this.numSig+4 < limiteCompo){
-      
-      this.numActual = this.numSig;
-      this.numSig = limiteCompo; 
-    
+  flechaIqzClickada(){
+    if(this.numActual > 4 && this.numSig < this.numFiltrado){
+      this.numActual = this.numActual-4;
+      this.numSig = this.numSig-4;
     }else{
-        
-      this.numActual = this.numSig;
-      this.numSig = this.numSig+4;
+        //no hace nada ni siquiera se ve el boton
+    }
+    this.forceUpdate();
+  }
 
-   }
+  flechaDereClickada(){
+    if(this.numSig === this.numFiltrado){
+      //no hace nada ojo!!!  ni aparece el boton
+    }else{
+      if(this.numSig+4 < this.numFiltrado){
+        console.log('Funcion flechaDereClickada');
+        
+        console.log('numActual: '+this.numActual +' numSig: '+this.numSig);
+        this.numActual = this.numSig;
+        this.numSig +=4; 
+        console.log('numActual: '+this.numActual +' numSig: '+this.numSig);
+      }else{
+        this.numActual = this.numSig;
+        this.numSig =  this.numFiltrado;
+    }
+  }
    this.forceUpdate();
   }
-
-  flechaIqzClickada(){
-
-  }
-  
 
  refrescarPagina(){
   window.location.href = window.location.href;

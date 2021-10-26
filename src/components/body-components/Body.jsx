@@ -4,7 +4,8 @@ import Carrusel from './carrucel/Carrusel';
 
 const Body =()=>{
     return (
-        <>
+        
+        <div>
             <div class="BodyPart" >
                 <p class="descripcion">
                     <h5 class="letraDescrip">
@@ -28,8 +29,8 @@ const Body =()=>{
  
                     />
            </div>
-
-        </>
+        </div>
+       
     )
 }
 
